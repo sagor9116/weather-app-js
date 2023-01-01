@@ -1,0 +1,28 @@
+// center the flex items
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// media query with minimum width
+@mixin mq($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+// media query with minimum height
+@mixin mqh($size) {
+  @media only screen and (min-height: $size) {
+    @content;
+  }
+}
+
+// media query with max-width and min-height
+@mixin mqMaxWMinH($size1, $size2) {
+  // iPad Pro w: 1024 & iPhone Plus 6/7/8 h: 736
+  @media only screen and (max-width: $size1) and (min-height: $size2) {
+    @content;
+  }
+}

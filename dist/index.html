@@ -9,13 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;0,600;1,500&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <!-- font awesome -->
     <script
       src="https://kit.fontawesome.com/0811542081.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="./css/main.min.css" />
     <title>Weather App</title>
   </head>
   <body>
@@ -30,14 +31,12 @@
             class="search-bar__text"
             role="searchbox"
             size="40"
-            placeholder="City, state, country"
-          />
+            placeholder="City, state, country" />
           <button
             id="search-bar__btn"
             class="search-bar__btn"
             title="Enter a location"
-            aria-label="Submit Search"
-          >
+            aria-label="Submit Search">
             <i class="fa fa-search"></i>
             <i class="fas fa-sync fa-spin none"></i>
           </button>
@@ -54,13 +53,11 @@
         id="current-forecast"
         class="current-forecast"
         role="region"
-        aria-labelledby="current-forecast__location"
-      >
+        aria-labelledby="current-forecast__location">
         <h2 id="current-forecast__locations">Current Conditions</h2>
         <div
           id="current-forecast__conditons"
-          class="current-forecast__conditons"
-        ></div>
+          class="current-forecast__conditons"></div>
       </section>
       <!-- current forecast section ends here -->
 
@@ -70,8 +67,7 @@
           id="get-location"
           class="btn"
           title="Get location"
-          aria-label="Get the current weather condtion for your current location"
-        >
+          aria-label="Get the current weather condtion for your current location">
           <i class="fas fa-map-marker-alt"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -80,8 +76,7 @@
           id="home"
           class="btn"
           title="Home weather"
-          aria-label="Get the current weather condtion for your home location"
-        >
+          aria-label="Get the current weather condtion for your home location">
           <i class="fas fa-home"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -90,8 +85,7 @@
           id="save-location"
           class="btn"
           title="Save location"
-          aria-label="Save the current location as your home location"
-        >
+          aria-label="Save the current location as your home location">
           <i class="fas fa-save"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -100,8 +94,7 @@
           id="units"
           class="btn"
           title="Weather measurement unit"
-          aria-label="Toggle between metric and imperial measurement units"
-        >
+          aria-label="Toggle between metric and imperial measurement units">
           <i class="fas fa-chart-bar"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -110,8 +103,7 @@
           id="refresh"
           class="btn"
           title="Refresh current weather"
-          aria-label="Refresh the current weather conditions"
-        >
+          aria-label="Refresh the current weather conditions">
           <i class="fas fa-sync-alt"></i>
           <i class="fas fa-sync fa-spin none"></i>
         </button>
@@ -123,15 +115,13 @@
         id="daily-forecast"
         class="daily-forecast"
         role="region"
-        aria-labelledby="daily-forecast__title"
-      >
+        aria-labelledby="daily-forecast__title">
         <h2 id="daily-forecast__title" class="daily-forecast__title">
           Six day forecast
         </h2>
         <div
           id="daily-forecast__contents"
-          class="daily-forecast__contents"
-        ></div>
+          class="daily-forecast__contents"></div>
       </section>
       <!-- daily forecast section ends -->
     </main>
