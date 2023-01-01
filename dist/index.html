@@ -22,19 +22,19 @@
     <h1>Responsive Weather App powered by Open Weather A P I</h1>
     <main>
       <section id="search-bar" class="search-bar">
-        <form id="searchBar__form" class="searchBar__form" role="search">
-          <label for="serachBar__text"> Enter a new location </label>
+        <form id="search-bar__form" class="search-bar__form" role="search">
+          <label for="serach-bar__text"> Enter a new location </label>
           <input
             type="text"
-            id="searchBar__text"
-            class="searchBar__text"
+            id="search-bar__text"
+            class="search-bar__text"
             role="searchbox"
             size="40"
             placeholder="City, state, country"
           />
           <button
-            id="searchBar__btn"
-            class="searchBar__btn"
+            id="search-bar__btn"
+            class="search-bar__btn"
             title="Enter a location"
             aria-label="Submit Search"
           >
@@ -45,9 +45,31 @@
         <!-- searchBar__form -->
       </section>
       <!-- search-bar section ends -->
-      <section id="current-forecast" class="current-forecast"></section>
+
+      <!-- skip-link to help screen reader navigate through sections -->
+      <a href="#current-forecast" class="skip-link">
+        Skip to Current Conditions
+      </a>
+      <section
+        id="current-forecast"
+        class="current-forecast"
+        role="region"
+        aria-labelledby="current-forecast__location"
+      >
+        <h2 id="current-forecast__locations">Current Conditions</h2>
+        <div
+          id="current-forecast__conditons"
+          class="current-forecast__conditons"
+        ></div>
+      </section>
+      <!-- current forecast section ends here -->
+
       <nav id="nav-btn" class="nav-btn"></nav>
       <section id="daily-forecast" class="daily-forecast"></section>
     </main>
   </body>
 </html>
+
+<!-- 
+  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
+ -->
