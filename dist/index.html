@@ -64,7 +64,59 @@
       </section>
       <!-- current forecast section ends here -->
 
-      <nav id="nav-btn" class="nav-btn"></nav>
+      <a href="#daily-forecast" class="skip-link"> Skip to six day forecast </a>
+      <nav id="nav-btn" class="nav-btn">
+        <button
+          id="get-location"
+          class="btn"
+          title="Get location"
+          aria-label="Get the current weather condtion for your current location"
+        >
+          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="home"
+          class="btn"
+          title="Home weather"
+          aria-label="Get the current weather condtion for your home location"
+        >
+          <i class="fas fa-home"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="save-location"
+          class="btn"
+          title="Save location"
+          aria-label="Save the current location as your home location"
+        >
+          <i class="fas fa-save"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="units"
+          class="btn"
+          title="Weather measurement unit"
+          aria-label="Toggle between metric and imperial measurement units"
+        >
+          <i class="fas fa-chart-bar"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+
+        <button
+          id="refresh"
+          class="btn"
+          title="Refresh current weather"
+          aria-label="Refresh the current weather conditions"
+        >
+          <i class="fas fa-sync-alt"></i>
+          <i class="fas fa-sync fa-spin none"></i>
+        </button>
+      </nav>
+      <!-- navigation ends here -->
       <section id="daily-forecast" class="daily-forecast"></section>
     </main>
   </body>
