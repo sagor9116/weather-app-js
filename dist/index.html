@@ -20,21 +20,25 @@
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Responsive Weather App powered by Open Weather A P I</h1>
+    <h1 class="offscreen">
+      Responsive Weather App powered by Open Weather A P I
+    </h1>
     <main>
       <section id="search-bar" class="search-bar">
         <form id="search-bar__form" class="search-bar__form" role="search">
-          <label for="serach-bar__text"> Enter a new location </label>
+          <label for="serach-bar__text" class="offscreen">
+            Enter a new location
+          </label>
           <input
             type="text"
-            id="search-bar__text"
-            class="search-bar__text"
+            id="search-bar__input"
+            class="search-bar__input"
             role="searchbox"
             size="40"
             placeholder="City, state, country" />
           <button
             id="search-bar__btn"
-            class="search-bar__btn"
+            class="search-bar__btn btn"
             title="Enter a location"
             aria-label="Submit Search">
             <i class="fa fa-search"></i>
@@ -46,7 +50,7 @@
       <!-- search-bar section ends -->
 
       <!-- skip-link to help screen reader navigate through sections -->
-      <a href="#current-forecast" class="skip-link">
+      <a href="#current-forecast" class="skip-link offscreen">
         Skip to Current Conditions
       </a>
       <section
@@ -116,7 +120,7 @@
         class="daily-forecast"
         role="region"
         aria-labelledby="daily-forecast__title">
-        <h2 id="daily-forecast__title" class="daily-forecast__title">
+        <h2 id="daily-forecast__title" class="daily-forecast__title offscreen">
           Six day forecast
         </h2>
         <div
