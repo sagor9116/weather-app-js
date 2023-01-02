@@ -14,6 +14,7 @@ const locationIcon = document.querySelector(".fa-map-marker-alt")
 const homeIcon = document.querySelector(".fa-home")
 const saveIcon = document.querySelector(".fa-save")
 const unitIcon = document.querySelector(".fa-chart-bar")
+const refreshIcon = document.querySelector(".fa-sync-alt")
 // import functions from domFunctions
 import {
   addSpiner,
@@ -37,7 +38,7 @@ const initApp = () => {
   homeButton.addEventListener("click", loadWeather)
   saveButton.addEventListener("click", saveLocation)
   unitButton.addEventListener("click", setUnitPref)
-  // refreshButton.addEventListener("click", refreshWeather)
+  refreshButton.addEventListener("click", refreshWeather)
 
   loadWeather()
 }
@@ -127,6 +128,12 @@ const saveLocation = () => {
 const setUnitPref = () => {
   addSpiner(unitIcon)
   currentLoc.toggleUnit()
+  updateDataAndDisplay(currentLoc)
+}
+
+// refresh current weather
+const refreshWeather = () => {
+  addSpiner(refreshIcon)
   updateDataAndDisplay(currentLoc)
 }
 
