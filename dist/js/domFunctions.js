@@ -25,4 +25,4 @@ const updateScreenReaderConfirmation = (msg) => {
   document.querySelector("#confirmation").textContent = msg
 }
 
-export { addSpiner, displayError }
+export { addSpiner, displayError, updateScreenReaderConfirmation }

@@ -8,4 +8,8 @@ const setLocationObj = (locationObj, coordsObj) => {
   }
 }
 
-export { setLocationObj }
+const getHomeLocation = () => {
+  return localStorage.getItem("defaultWeatherLocation")
+}
+
+export { setLocationObj, getHomeLocation }

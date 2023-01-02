@@ -11,12 +11,17 @@ const locationEntry = document.querySelector("#search-bar__form")
 
 // get icons
 const locationIcon = document.querySelector(".fa-map-marker-alt")
-
+const homeIcon = document.querySelector(".fa-home")
+const saveIcon = document.querySelector(".fa-save")
 // import functions from domFunctions
-import { addSpiner, displayError } from "./domFunctions.js"
+import {
+  addSpiner,
+  displayError,
+  updateScreenReaderConfirmation,
+} from "./domFunctions.js"
 
 // import functions from dataFunctions
-import { setLocationObj } from "./dataFunctions.js"
+import { getHomeLocation, setLocationObj } from "./dataFunctions.js"
 
 // import current location class
 import CurrentLocation from "./CurrentLocation.js"
@@ -28,36 +33,95 @@ const currentLoc = new CurrentLocation()
 const initApp = () => {
   // add event listerner
   geoButton.addEventListener("click", getGeoWeather)
-  // homeButton.addEventListener("click", loadWeather)
-  // saveButton.addEventListener("click", saveLocation)
+  homeButton.addEventListener("click", loadWeather)
+  saveButton.addEventListener("click", saveLocation)
   // unitButton.addEventListener("click", setUnitPref)
   // refreshButton.addEventListener("click", refreshWeather)
+
+  loadWeather()
 }
 document.addEventListener("DOMContentLoaded", initApp)
 
 const getGeoWeather = (event) => {
-  console.log("get geo wether")
-
   if (event && event.type === "click") {
     addSpiner(locationIcon)
     console.log("clicked")
   }
-
   if (!navigator.geolocation) return geoError()
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError)
 }
 
+// geo location error
 const geoError = (err) => {
+  console.log(err)
   const errMessage = err ? err.message : "Geolocation not supported"
   displayError(errMessage, errMessage)
 }
 
+//geo location success
 const geoSuccess = (position) => {
+  console.log(position)
   const myCoordsObj = {
-    lat: position.coords.lat,
-    lon: position.coords.lon,
-    name: `Lat: ${position.coords.lat} Lon: ${position.coords.lon}`,
+    lat: position.coords.latitude,
+    lon: position.coords.longitude,
+    name: `Lat: ${position.coords.latitude} Lon: ${position.coords.longitude}`,
   }
 
   setLocationObj(currentLoc, myCoordsObj)
+  console.log(currentLoc)
+  updateDataAndDisplay(currentLoc)
+}
+
+// loding weather
+const loadWeather = (event) => {
+  const savedLocation = getHomeLocation()
+  if (!savedLocation && !event) return getGeoWeather()
+  if (!savedLocation && event.type === "click") {
+    displayError(
+      "No Home Location Saved.",
+      "Sorry. Please save your home location first."
+    )
+  } else if (savedLocation && !event) {
+    displayHomeWeatherLocation(savedLocation)
+  } else {
+    addSpiner(homeIcon)
+    displayHomeWeatherLocation(savedLocation)
+  }
+}
+
+// display Home Weather Location
+const displayHomeWeatherLocation = (home) => {
+  if (typeof home === "string") {
+    const locationObj = JSON.parse(home)
+    console.log(locationObj)
+    const myCoordsObj = {
+      lat: locationObj.lat,
+      lon: locationObj.lon,
+      name: locationObj.name,
+      unit: locationObj.unit,
+    }
+    setLocationObj(currentLoc, myCoordsObj)
+    updateDataAndDisplay(currentLoc)
+  }
+}
+
+// save location
+const saveLocation = () => {
+  if (currentLoc.getLat() && currentLoc.getLon()) {
+    addSpiner(saveIcon)
+    const location = {
+      lat: currentLoc.getLat(),
+      lon: currentLoc.getLon(),
+      name: currentLoc.getName(),
+      unit: currentLoc.getUnit(),
+    }
+    localStorage.setItem("defaultWeatherLocation", JSON.stringify(location))
+    updateScreenReaderConfirmation(
+      `Saved ${currentLoc.getName()} as home location.`
+    )
+  }
+}
+
+const updateDataAndDisplay = async (locationObj) => {
+  console.log(locationObj)
 }

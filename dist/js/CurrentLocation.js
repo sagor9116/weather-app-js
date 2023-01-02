@@ -8,7 +8,7 @@ class CurrentLocation {
 
   // methods for getting and setting
   getName() {
-    return this_.name
+    return this._name
   }
   setName(name) {
     return (this._name = name)
