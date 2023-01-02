@@ -13,6 +13,7 @@ const locationEntry = document.querySelector("#search-bar__form")
 const locationIcon = document.querySelector(".fa-map-marker-alt")
 const homeIcon = document.querySelector(".fa-home")
 const saveIcon = document.querySelector(".fa-save")
+const unitIcon = document.querySelector(".fa-chart-bar")
 // import functions from domFunctions
 import {
   addSpiner,
@@ -35,7 +36,7 @@ const initApp = () => {
   geoButton.addEventListener("click", getGeoWeather)
   homeButton.addEventListener("click", loadWeather)
   saveButton.addEventListener("click", saveLocation)
-  // unitButton.addEventListener("click", setUnitPref)
+  unitButton.addEventListener("click", setUnitPref)
   // refreshButton.addEventListener("click", refreshWeather)
 
   loadWeather()
@@ -120,6 +121,13 @@ const saveLocation = () => {
       `Saved ${currentLoc.getName()} as home location.`
     )
   }
+}
+
+// setting weather unit
+const setUnitPref = () => {
+  addSpiner(unitIcon)
+  currentLoc.toggleUnit()
+  updateDataAndDisplay(currentLoc)
 }
 
 const updateDataAndDisplay = async (locationObj) => {
